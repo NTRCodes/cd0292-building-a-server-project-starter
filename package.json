@@ -1,0 +1,38 @@
+{
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@types/express": "^4.17.21",
+    "@types/jasmine": "^5.1.4",
+    "@types/node": "^20.14.12",
+    "@types/supertest": "^6.0.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.8.0",
+    "jasmine": "^5.2.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sharp": "^0.33.4"
+  },
+  "name": "image_api",
+  "version": "1.0.0",
+  "description": "API for resizing .jpg files.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "build": "npm run prettier && npm run lint && npx tsc",
+    "lint": "eslint ./src/*.ts",
+    "prettier": "prettier ./src/*.ts",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
+  },
+  "author": "Nigel Ross",
+  "license": "ISC"
+}
