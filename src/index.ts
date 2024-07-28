@@ -17,7 +17,14 @@ app.get('/image', async (req, res) => {
     const options: ImageResizeOptions = { width, height };
     console.log(imageName, options);
     try {
-      res.sendFile(path.join('./thumbs', await processImage(imageName, options)));
+
+      let imagePath;
+      await processImage(imageName, options)
+        .then( (newPath:string) => {
+          imagePath = path.join('./thumbs', newPath);
+          res.sendFile(imagePath);
+        });
+      
       // Serve the image from the thumbPath
     } catch (error) {
       // Handle errors
